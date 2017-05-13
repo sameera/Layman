@@ -17,7 +17,7 @@ namespace Layman
 
         protected void given(string description, Action setupAction)
         {
-            Console.WriteLine(description);
+            Console.WriteLine($"GIVEN {description}");
             given(setupAction);
         }
 
@@ -28,7 +28,7 @@ namespace Layman
 
         protected void when(string description, Action act)
         {
-            Console.WriteLine(description);
+            Console.WriteLine($"\tWHEN {description}");
             when(act);
         }
 
@@ -40,7 +40,7 @@ namespace Layman
         protected void it(string description, Func<bool> check)
         {
             Assert.IsTrue(check(), description + " :FAILED:");
-            Console.WriteLine(description);
+            Console.WriteLine($"\t\tIT {description}");
         }
 
         protected void it(Func<bool> check)
@@ -51,7 +51,7 @@ namespace Layman
         protected void it(string description, Action check)
         {
             check();
-            Console.WriteLine(description);
+            Console.WriteLine($"\t\tIT {description}");
         }
 
         protected void it(Action check)
