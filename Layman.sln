@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Layman", "Layman\Layman.csproj", "{74C3ABC5-D8EE-4474-A5F3-1A8CAC1827B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7C5DB6FA-A857-4A2C-88BF-17038A1DB6B1}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Layman.Samples", "Layman.Samples\Layman.Samples.csproj", "{E96CFB17-112D-4267-8F36-36A756974186}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74C3ABC5-D8EE-4474-A5F3-1A8CAC1827B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C3ABC5-D8EE-4474-A5F3-1A8CAC1827B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C3ABC5-D8EE-4474-A5F3-1A8CAC1827B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C3ABC5-D8EE-4474-A5F3-1A8CAC1827B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E96CFB17-112D-4267-8F36-36A756974186}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E96CFB17-112D-4267-8F36-36A756974186}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E96CFB17-112D-4267-8F36-36A756974186}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E96CFB17-112D-4267-8F36-36A756974186}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
