@@ -2,40 +2,44 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RootNamespace>Layman</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.0.0</Version>
-    <Description>Layman is a very simple BDD framework for .NET that's built on top of xUnit and Visual Studio Unit Tests. The main objective of the framework is to help you write readable, BDD style tests.</Description>
-    <PackageProjectUrl>https://github.com/sameera/Layman</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/sameera/Layman</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageTags>layman, bdd, unit tests</PackageTags>
-    <PackageReleaseNotes>Updated to .net core 2.0</PackageReleaseNotes>
+    <Version>2.0.1</Version>
+    <AssemblyVersion>2.0.1.0</AssemblyVersion>
     <Authors>Sameera Perera</Authors>
-    <Company>sameeraperera.com</Company>
-    <Product>Layman BDD Test Framework for xUnit and .NET Core</Product>
+    <PackageProjectUrl>https://github.com/sameera/layman</PackageProjectUrl>
+    <PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
+    <Copyright>Sameera Perera</Copyright>
+    <PackageTags>BDD, xUnit, .net core</PackageTags>
+    <Description>Minimal BDD framework for xUnit and .net Core</Description>
+    <PackageReleaseNotes>Updated to .net core 2.0 and xUnit 2.3.1</PackageReleaseNotes>
+    <PackageIconUrl>https://github.com/sameera/layman</PackageIconUrl>
+    <RepositoryUrl>https://github.com/sameera/layman</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="xunit" Version="2.3.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="TestSpec.SyntaticSugar.cs">
-      <DependentUpon>TestSpec.SyntaticSugar.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
+    <PackageReference Include="xunit.assert" Version="2.3.1" />
+    <PackageReference Include="xunit.core" Version="2.3.1" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="TestSpec.SyntaticSugar.tt">
-      <LastGenOutput>TestSpec.SyntaticSugar.cs</LastGenOutput>
       <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TestSpec.SyntaticSugar.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="TestSpec.SyntaticSugar.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TestSpec.SyntaticSugar.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>

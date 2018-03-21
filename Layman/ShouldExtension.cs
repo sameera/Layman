@@ -4,9 +4,9 @@
     using System.Collections.Generic;
     using System.Text.RegularExpressions;
 
-    public static class should
+    public static class Should
     {
-        public static bool throw_a<T>(Action act)
+        public static bool Throw_a<T>(Action act)
         {
             try
             {
@@ -19,12 +19,12 @@
             }
         }
 
-        public static bool not_throw<T>(Action act)
+        public static bool Not_throw<T>(Action act)
         {
-            return !throw_a<T>(act);
+            return !Throw_a<T>(act);
         }
 
-        public static bool throw_an_exception(Action act)
+        public static bool Throw_an_exception(Action act)
         {
             try
             {
@@ -37,15 +37,15 @@
             }
         }
 
-        public static bool not_throw_an_exception(Action act)
+        public static bool Not_throw_an_exception(Action act)
         {
-            return !throw_an_exception(act);
+            return !Throw_an_exception(act);
         }
     }
 
     public static class ShouldExtension
     {
-        public static bool should_be<T>(this T actual, T expected)
+        public static bool Should_be<T>(this T actual, T expected)
         {
             return EqualityComparer<T>.Default.Equals(actual, expected);
         }
@@ -57,9 +57,9 @@
         }
         */
 
-        public static bool should_not_be<T>(this T actual, T unexpected)
+        public static bool Should_not_be<T>(this T actual, T unexpected)
         {
-            return !unexpected.should_be(actual);
+            return !unexpected.Should_be(actual);
         }
 
         /*
@@ -69,12 +69,12 @@
         }
         */
 
-        public static bool should_match(this object value, string regex)
+        public static bool Should_match(this object value, string regex)
         {
             return value != null && new Regex(regex).IsMatch(value.ToString());
         }
 
-        public static bool is_a(this object tested, Func<object, bool> check)
+        public static bool Is_a(this object tested, Func<object, bool> check)
         {
             return check(tested);
         }

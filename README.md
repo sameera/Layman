@@ -36,8 +36,6 @@ namespace Layman.Samples
 }
 ```
 ```C#
-// Sample: Visual Studio Unit Tests
-
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Layman.Samples
@@ -49,14 +47,15 @@ namespace Layman.Samples
         public void Two_numbers_can_be_added()
         {
             given("I've entered two numbers to the calculator", () => {
-                    the_calculator = new Calculator();
-                    the_calculator.FirstNumber = 10;
-                    the_calculator.SecondNumber = 20;
-                });
+                the_calculator = new Calculator {
+                    FirstNumber = 10,
+                    SecondNumber = 20
+                };
+            });
 
             when("I Add", () => calculated_result = the_calculator.Add());
 
-            it("gives me the sum of the numbers", () => calculated_result.should_be(30));
+            it("gives me the sum of the numbers", () => calculated_result.Should_be(30));
         }
 
         #region Internal
@@ -83,14 +82,40 @@ namespace Layman.xUnit.Samples
         public void Two_numbers_can_be_added()
         {
             Given("I've entered two numbers to the calculator", () => {
-                    the_calculator = new Calculator();
-                    the_calculator.FirstNumber = 10;
-                    the_calculator.SecondNumber = 20;
-                });
+                the_calculator = new Calculator {
+                    FirstNumber = 10,
+                    SecondNumber = 20
+                };
+            });
 
             When("I Add", () => calculated_result = the_calculator.Add());
 
             It("gives me the sum of the numbers", () => calculated_result.Should_be(30));
+        }
+
+        [Fact]
+        public void Does_not_modify_orignal_values_when_adding()
+        {
+            Given("I've entered two numbers to the calculator", () => {
+                the_calculator = new Calculator {
+                    FirstNumber = 10,
+                    SecondNumber = 20
+                };
+            });
+
+            When("I Add", () => calculated_result = the_calculator.Add());
+
+            // You can do more than one assertion like this:
+            It("Leaves original values are unaffected",
+                () => the_calculator.FirstNumber.Should_be(10),
+                () => the_calculator.SecondNumber.Should_be(20)
+            );
+
+            // When the asssertions are one liners (as in the above, you could alternatively write
+            It("Leaves original values are unaffected",
+                the_calculator.FirstNumber.Should_be(10),
+                the_calculator.SecondNumber.Should_be(20)
+            );
         }
 
         #region Internal
@@ -105,5 +130,6 @@ namespace Layman.xUnit.Samples
         #endregion
     }
 }
+
 
 ```

@@ -42,16 +42,17 @@ namespace Layman
             Output.WriteLine($"\t\tIT {description}");
         }
 
-        protected void It(string description, Func<bool>[] checks)
+        protected void It(string description, params Func<bool>[] checks)
         {
-            Assert.True(checks.All(check => check()), description + " :FAILED:");
             Output.WriteLine($"\t\tIT {description}");
+            Assert.True(checks.All(check => check()), description + " :FAILED:");
         }
 
-        //protected void It(Func<bool> check)
-        //{
-        //    It(check.Method.Name, check);
-        //}
+        protected void It(string description, params bool[] checkResults)
+        {
+            Output.WriteLine($"\t\tIT {description}");
+            Assert.True(checkResults.All(c => c), description + " :FAILED:");
+        }
 
         protected void It(string description, Action check)
         {

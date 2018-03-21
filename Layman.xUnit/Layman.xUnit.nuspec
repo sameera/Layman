@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Layman.xUnit</id>
+    <version>2.0.1</version>
+    <title>Layman.xUnit</title>
+    <authors>Sameera Perera</authors>
+    <owners>Layman.xUnit</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <developmentDependency>true</developmentDependency>
+    <licenseUrl>https://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://github.com/sameera/layman</projectUrl>
+    <description>Layman BDD framework for xUnit and .net Core</description>
+    <summary>Minimal BDD framework for xUnit and .net Core</summary>
+    <releaseNotes>Updated to .net core 2.0 and xUnit 2.3.1</releaseNotes>
+    <copyright>Sameera Perera</copyright>
+    <tags>BDD, xUnit, .net core</tags>
+    <repository type="git" url="https://github.com/sameera/layman" />
+    <dependencies>
+      <group targetFramework=".NETCoreApp1.1">
+        <dependency id="Microsoft.NETCore.App" version="1.1.2" exclude="Build,Analyzers" />
+        <dependency id="xunit" version="2.2.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="lib\netcoreapp2.0\Layman.xUnit.dll" target="lib\netcoreapp2.0\Layman.xUnit.dll" />
+  </files>
+</package>
