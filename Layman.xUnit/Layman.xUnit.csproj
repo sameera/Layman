@@ -1,11 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>2.0.0</Version>
+    <Description>Layman is a very simple BDD framework for .NET that's built on top of xUnit and Visual Studio Unit Tests. The main objective of the framework is to help you write readable, BDD style tests.</Description>
+    <PackageProjectUrl>https://github.com/sameera/Layman</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/sameera/Layman</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>layman, bdd, unit tests</PackageTags>
+    <PackageReleaseNotes>Updated to .net core 2.0</PackageReleaseNotes>
+    <Authors>Sameera Perera</Authors>
+    <Company>sameeraperera.com</Company>
+    <Product>Layman BDD Test Framework for xUnit and .NET Core</Product>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="xunit" Version="2.2.0" />
+    <PackageReference Include="xunit" Version="2.3.1" />
   </ItemGroup>
 
   <ItemGroup>

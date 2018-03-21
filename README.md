@@ -1,5 +1,5 @@
 # Layman
-Layman is a very simple BDD framework for .NET that's built on top of Visual Studio Unit Tests. 
+Layman is a very simple BDD framework for .NET that's built on top of xUnit as well as Visual Studio Unit Tests. 
 The main objective of the framework is to help you write readable, BDD style tests.
 
 Layman was initially inspired by [NSpec](https://github.com/mattflo/NSpec) which is a great, feature-packed framework.
@@ -36,6 +36,8 @@ namespace Layman.Samples
 }
 ```
 ```C#
+// Sample: Visual Studio Unit Tests
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Layman.Samples
@@ -65,4 +67,43 @@ namespace Layman.Samples
         #endregion
     }
 }
+```
+
+```C#
+// Sample: xUnit / .NET Core
+
+using Xunit;
+using Xunit.Abstractions;
+
+namespace Layman.xUnit.Samples
+{
+    public class CalculatorTest : TestSpec
+    {
+        [Fact]
+        public void Two_numbers_can_be_added()
+        {
+            Given("I've entered two numbers to the calculator", () => {
+                    the_calculator = new Calculator();
+                    the_calculator.FirstNumber = 10;
+                    the_calculator.SecondNumber = 20;
+                });
+
+            When("I Add", () => calculated_result = the_calculator.Add());
+
+            It("gives me the sum of the numbers", () => calculated_result.Should_be(30));
+        }
+
+        #region Internal
+
+        Calculator the_calculator;
+        int calculated_result;
+
+        public CalculatorTest(ITestOutputHelper output): base(output)
+        {
+        }
+
+        #endregion
+    }
+}
+
 ```

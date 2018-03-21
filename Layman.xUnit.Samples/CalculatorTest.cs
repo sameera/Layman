@@ -1,10 +1,9 @@
 ﻿using Xunit;
-using Layman;
 using Xunit.Abstractions;
 
 namespace Layman.xUnit.Samples
 {
-    public class CalculatorTest : Layman.TestSpec
+    public class CalculatorTest : TestSpec
     {
         [Fact]
         public void Two_numbers_can_be_added()
