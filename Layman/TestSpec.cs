@@ -1,60 +1,51 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace Layman
 {
     [TestClass]
     public partial class TestSpec
     {
-        /*
-        protected void MockLogging()
-        {
-            var config = new LoggingConfiguration();
-            config.AddTarget(new NLog.Targets.NullTarget());
-            NLog.LogManager.Configuration = config;
-        }
-        */
-
-        protected void given(string description, Action setupAction)
+        protected void Given(string description, Action setupAction)
         {
             Console.WriteLine($"GIVEN {description}");
-            given(setupAction);
+            Given(setupAction);
         }
 
-        protected void given(Action setupAction)
+        protected void Given(Action setupAction)
         {
             setupAction();
         }
 
-        protected void when(string description, Action act)
+        protected void When(string description, Action act)
         {
             Console.WriteLine($"\tWHEN {description}");
-            when(act);
+            When(act);
         }
 
-        protected void when(Action act)
+        protected void When(Action act)
         {
             act();
         }
 
-        protected void it(string description, Func<bool> check)
+        protected void It(string description, Func<bool> check)
         {
             Assert.IsTrue(check(), description + " :FAILED:");
             Console.WriteLine($"\t\tIT {description}");
         }
 
-        protected void it(Func<bool> check)
+        protected void It(Func<bool> check)
         {
-            it(check.Method.Name, check);
+            It(check.Method.Name, check);
         }
 
-        protected void it(string description, Action check)
+        protected void It(string description, Action check)
         {
             check();
             Console.WriteLine($"\t\tIT {description}");
         }
 
-        protected void it(Action check)
+        protected void It(Action check)
         {
             check();
         }
@@ -63,7 +54,7 @@ namespace Layman
         {
             private readonly T subject;
 
-            public void which_results_in(Action<T> react)
+            public void Which_results_in(Action<T> react)
             {
                 react(subject);
             }

@@ -50,7 +50,7 @@ namespace Layman.xUnit.Samples
         Calculator the_calculator;
         int calculated_result;
 
-        public CalculatorTest(ITestOutputHelper output): base(output)
+        public CalculatorTest(ITestOutputHelper output) : base(output)
         {
         }
 

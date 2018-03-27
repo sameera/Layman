@@ -4,18 +4,19 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <RootNamespace>Layman</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2.0.1</Version>
-    <AssemblyVersion>2.0.1.0</AssemblyVersion>
+    <Version>2.0.3</Version>
+    <AssemblyVersion>2.0.3.0</AssemblyVersion>
     <Authors>Sameera Perera</Authors>
     <PackageProjectUrl>https://github.com/sameera/layman</PackageProjectUrl>
     <PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
     <Copyright>Sameera Perera</Copyright>
     <PackageTags>BDD, xUnit, .net core</PackageTags>
     <Description>Minimal BDD framework for xUnit and .net Core</Description>
-    <PackageReleaseNotes>Updated to .net core 2.0 and xUnit 2.3.1</PackageReleaseNotes>
+    <PackageReleaseNotes>"Must" Extension methods as an alternative to "Should"</PackageReleaseNotes>
     <PackageIconUrl>https://github.com/sameera/layman</PackageIconUrl>
     <RepositoryUrl>https://github.com/sameera/layman</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <FileVersion>2.0.3.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

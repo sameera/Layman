@@ -7,51 +7,56 @@ namespace Layman
 {
     public partial class TestSpec
     {
-        protected ITestOutputHelper Output;
+        protected readonly ITestOutputHelper Output;
+
+        public TestSpec() : this(new DebugOutputHelper())
+        {
+        }
 
         public TestSpec(ITestOutputHelper outputHelper)
         {
             Output = outputHelper;
         }
 
+        protected void Given(Action setupAction) => setupAction();
+
+        protected void Given(string description) => Output.WriteLine($"GIVEN {description}");
+
         protected void Given(string description, Action setupAction)
         {
-            Output.WriteLine($"GIVEN {description}");
+            Given(description);
             Given(setupAction);
         }
 
-        protected void Given(Action setupAction)
-        {
-            setupAction();
-        }
+        protected void When(string description) => Output.WriteLine($"\tWHEN {description}");
+
+        protected void When(Action act) => act();
 
         protected void When(string description, Action act)
         {
-            Output.WriteLine($"\tWHEN {description}");
+            When(description);
             When(act);
-        }
-
-        protected void When(Action act)
-        {
-            act();
         }
 
         protected void It(string description, Func<bool> check)
         {
-            Assert.True(check(), description + " :FAILED:");
-            Output.WriteLine($"\t\tIT {description}");
+            AssertInternal(description, check());
         }
 
         protected void It(string description, params Func<bool>[] checks)
         {
-            Output.WriteLine($"\t\tIT {description}");
-            Assert.True(checks.All(check => check()), description + " :FAILED:");
+            AssertInternal(description, checks.All(check => check()));
         }
 
         protected void It(string description, params bool[] checkResults)
         {
-            Output.WriteLine($"\t\tIT {description}");
-            Assert.True(checkResults.All(c => c), description + " :FAILED:");
+            AssertInternal(description, checkResults.All(c => c));
+        }
+
+        private void AssertInternal(string description, bool success)
+        {
+            Output.WriteLine(string.Concat("\t\tIT ", description, success ? string.Empty : " :FAILED:"));
+            Assert.True(success, description + " :FAILED:");
         }
 
         protected void It(string description, Action check)

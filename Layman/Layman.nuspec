@@ -14,7 +14,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>Includes Action callbacks to support FakeItEasy type checks.</releaseNotes>
-    <copyright>Copyright Sameera Perera 2015</copyright>
+    <copyright>Sameera Perera</copyright>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="Microsoft.VisualStudio.QualityTools.UnitTestFramework" targetFramework="net40" />
     </frameworkAssemblies>

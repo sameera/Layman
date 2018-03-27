@@ -8,62 +8,62 @@ namespace Layman
     {
         protected void and(string description, Func<bool> check)
         {
-            it(description, check);
+            It(description, check);
         }
 
         protected void that(string description, Func<bool> check)
         {
-            it(description, check);
+            It(description, check);
         }
 
         protected void then(string description, Func<bool> check)
         {
-            it(description, check);
+            It(description, check);
         }
 
         protected void and(Func<bool> check)
         {
-            it(check);
+            It(check);
         }
 
         protected void that(Func<bool> check)
         {
-            it(check);
+            It(check);
         }
 
         protected void then(Func<bool> check)
         {
-            it(check);
+            It(check);
         }
 
         protected void and(string description, Action check)
         {
-            it(description, check);
+            It(description, check);
         }
 
         protected void that(string description, Action check)
         {
-            it(description, check);
+            It(description, check);
         }
 
         protected void then(string description, Action check)
         {
-            it(description, check);
+            It(description, check);
         }
 
         protected void and(Action check)
         {
-            it(check);
+            It(check);
         }
 
         protected void that(Action check)
         {
-            it(check);
+            It(check);
         }
 
         protected void then(Action check)
         {
-            it(check);
+            It(check);
         }
 
     }
