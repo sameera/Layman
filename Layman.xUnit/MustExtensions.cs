@@ -23,6 +23,8 @@ namespace Layman
 
         public static void Is_a<T>(this object tested) => Assert.IsType<T>(tested);
 
+        public static void Is_assignable_from<T>(this object tested) => Assert.IsAssignableFrom<T>(tested);
+
         public static void Satisfies<T>(this T value, Func<T, bool> check) => Assert.True(check(value), $"{value} does not satisfy the given check");
     }
 

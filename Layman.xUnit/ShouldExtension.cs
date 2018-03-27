@@ -39,12 +39,16 @@
 
     public static class ShouldExtension
     {
+        [Obsolete]
         public static bool Should_be<T>(this T actual, T expected) => EqualityComparer<T>.Default.Equals(actual, expected);
         
+        [Obsolete]
         public static bool Should_not_be<T>(this T actual, T unexpected) => !unexpected.Should_be(actual);
 
+        [Obsolete]
         public static bool Should_match(this object value, string regex) => value != null && new Regex(regex).IsMatch(value.ToString());
 
+        [Obsolete]
         public static bool Is_a(this object tested, Func<object, bool> check) => check(tested);
     }
 }
