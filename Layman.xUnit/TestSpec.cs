@@ -18,9 +18,21 @@ namespace Layman
             Output = outputHelper;
         }
 
+        protected void Given(string description) => Output.WriteLine($"GIVEN {description}");
+
         protected void Given(Action setupAction) => setupAction();
 
-        protected void Given(string description) => Output.WriteLine($"GIVEN {description}");
+        protected void Given<T>(out T state, Action setupAction)
+        {
+            state = default(T);
+            Given(setupAction);
+        }
+
+        protected void Given<T>(string description, out T state, Action setupAction)
+        {
+            state = default(T);
+            Given(description, setupAction);
+        }
 
         protected void Given(string description, Action setupAction)
         {
@@ -31,6 +43,18 @@ namespace Layman
         protected void When(string description) => Output.WriteLine($"\tWHEN {description}");
 
         protected void When(Action act) => act();
+
+        protected void When<T>(out T state, Action action)
+        {
+            state = default(T);
+            When(action);
+        }
+
+        protected void When<T>(string description, out T state, Action act)
+        {
+            state = default(T);
+            When(description, act);
+        }
 
         protected void When(string description, Action act)
         {
@@ -61,8 +85,8 @@ namespace Layman
 
         protected void It(string description, Action check)
         {
-            check();
             Output.WriteLine($"\t\tIT {description}");
+            check();
         }
 
         protected void It(Action check)

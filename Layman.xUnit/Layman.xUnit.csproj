@@ -5,18 +5,19 @@
     <RootNamespace>Layman</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>2.0.3</Version>
-    <AssemblyVersion>2.0.3.0</AssemblyVersion>
+    <AssemblyVersion>2.0.4.0</AssemblyVersion>
     <Authors>Sameera Perera</Authors>
     <PackageProjectUrl>https://github.com/sameera/layman</PackageProjectUrl>
     <PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
     <Copyright>Sameera Perera</Copyright>
     <PackageTags>BDD, xUnit, .net core</PackageTags>
     <Description>Minimal BDD framework for xUnit and .net Core</Description>
-    <PackageReleaseNotes>"Must" Extension methods as an alternative to "Should"</PackageReleaseNotes>
+    <PackageReleaseNotes>- Enables easier statements with OUT parameters.
+- Deprecated Should and Must in favor of FluentAssertions</PackageReleaseNotes>
     <PackageIconUrl>https://github.com/sameera/layman</PackageIconUrl>
     <RepositoryUrl>https://github.com/sameera/layman</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <FileVersion>2.0.3.0</FileVersion>
+    <FileVersion>2.0.4.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
