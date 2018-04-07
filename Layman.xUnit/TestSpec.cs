@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
@@ -19,81 +18,70 @@ namespace Layman
             Output = outputHelper;
         }
 
-        protected internal void Given(string description) => Output.WriteLine($"GIVEN {description}");
+        protected void Given(string description) => Output.WriteLine($"GIVEN {description}");
 
-        protected internal void Given(Action setupAction) => setupAction();
+        protected void Given(Action setupAction) => setupAction();
 
-        protected internal void Given<T>(out T state, Action setupAction)
+        protected void Given<T>(out T state, Action setupAction)
         {
             state = default(T);
             Given(setupAction);
         }
 
-        protected internal void Given<T>(string description, out T state, Action setupAction)
+        protected void Given<T>(string description, out T state, Action setupAction)
         {
             state = default(T);
             Given(description, setupAction);
         }
 
-        protected internal async Task<T> Given<T>(string description, Func<Task<T>> asyncAction)
-        {
-            Given(description);
-            return await asyncAction();
-        }
-
-        protected internal async Task Given(string description, Func<Task> asyncAction)
+        protected async Task Given(string description, Func<Task> asyncAction)
         {
             Given(description);
             await asyncAction();
         }
 
-        protected internal void Given(string description, Action setupAction)
+        protected void Given(string description, Action setupAction)
         {
             Given(description);
             Given(setupAction);
         }
 
-        protected internal void When(string description) => Output.WriteLine($"\tWHEN {description}");
+        protected void When(string description) => Output.WriteLine($"\tWHEN {description}");
 
-        protected internal void When(Action act) => act();
+        protected void When(Action act) => act();
 
-        protected internal void When<T>(out T state, Action action)
+        protected void When<T>(out T state, Action action)
         {
             state = default(T);
             When(action);
         }
 
-        protected internal async Task<T> When<T>(string description, Func<Task<T>> asyncAction)
+        protected async Task When(string description, Func<Task> asyncAction)
         {
-            When(description);
-            return await asyncAction();
+            Given(description);
+            await asyncAction();
         }
 
-        protected internal void When<T>(string description, out T state, Action act)
+        protected void When<T>(string description, out T state, Action act)
         {
             state = default(T);
             When(description, act);
         }
 
-        protected internal void When(string description, Action act)
+        protected void When(string description, Action act)
         {
             When(description);
             When(act);
         }
 
-        protected internal void It(string description, Func<bool> check)
+        protected void It(string description, Func<bool> check)
         {
             AssertInternal(description, check());
         }
 
-        protected internal void It(string description, params Func<bool>[] checks)
+        protected void It(string description, bool outcome)
         {
-            AssertInternal(description, checks.All(check => check()));
-        }
-
-        protected internal void It(string description, params bool[] checkResults)
-        {
-            AssertInternal(description, checkResults.All(c => c));
+            AssertInternal(description, outcome);
         }
 
         private void AssertInternal(string description, bool success)
@@ -102,24 +90,24 @@ namespace Layman
             Assert.True(success, description + " :FAILED:");
         }
 
-        protected internal async Task<T> It<T>(string description, Func<Task<T>> asyncAction)
+        protected async Task It(string description, Func<Task> asyncAction)
         {
             It(description);
-            return await asyncAction();
+            await asyncAction();
         }
 
-        protected internal void It(string description, Action check)
+        protected void It(string description, Action check)
         {
             It(description);
             check();
         }
 
-        protected internal void It(Action check)
+        protected void It(Action check)
         {
             check();
         }
 
-        private void It(string description)
+        protected void It(string description)
         {
             Output.WriteLine($"\t\tIT {description}");
         }

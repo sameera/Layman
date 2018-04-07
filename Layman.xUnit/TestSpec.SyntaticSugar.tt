@@ -48,7 +48,20 @@ namespace <#= namespaceElement.Name #>
                         select c;
         foreach (CodeFunction f in functions)
         {
-            if ("It" == f.Name)
+            if ("It" == f.Name && IsAsync(f))
+            {
+                for (int i = aliases.Length - 1; i >= 0; i--)
+                {
+#>
+        protected async Task <#= aliases[i] #>(<#= GetParameters(f) #>)
+        {
+            await It(<#= GetCallingParamList(f) #>);
+        }
+
+<#
+                }
+            }
+            else if ("It" == f.Name)
             {
                 for (int i = aliases.Length - 1; i >= 0; i--)
                 {
@@ -67,6 +80,11 @@ namespace <#= namespaceElement.Name #>
     }
 }
 <#+
+
+private bool IsAsync(CodeFunction function)
+{
+    return function.Type.AsString == "System.Threading.Tasks.Task";
+}
 
 private string GetCallingParamList(CodeFunction function)
 {
