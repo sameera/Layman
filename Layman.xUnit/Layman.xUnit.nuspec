@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Layman.xUnit</id>
-    <version>3.0.3</version>
+    <version>3.0.4</version>
     <title>Layman.xUnit</title>
     <authors>Sameera Perera</authors>
     <owners>Layman.xUnit</owners>

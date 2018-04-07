@@ -111,20 +111,5 @@ namespace Layman
         {
             Output.WriteLine($"\t\tIT {description}");
         }
-
-        //protected struct Reaction<T>
-        //{
-        //    private readonly T subject;
-
-        //    public void Which_results_in(Action<T> react)
-        //    {
-        //        react(subject);
-        //    }
-
-        //    public Reaction(T subject)
-        //    {
-        //        this.subject = subject;
-        //    }
-        //}
     }
 }

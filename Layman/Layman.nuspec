@@ -1,26 +1,24 @@
-<?xml version="1.0"?>
-<package >
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <id>Layman</id>
+    <version>2.0.2</version>
+    <title>Layman</title>
+    <authors>Sameera Perera</authors>
+    <owners>Sameera Perera</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
     <projectUrl>https://github.com/sameera/Layman.git</projectUrl>
-    <!--
-    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
-    -->
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
-    <releaseNotes>Includes Action callbacks to support FakeItEasy type checks.</releaseNotes>
-    <copyright>Sameera Perera</copyright>
-    <frameworkAssemblies>
-      <frameworkAssembly assemblyName="Microsoft.VisualStudio.QualityTools.UnitTestFramework" targetFramework="net40" />
-    </frameworkAssemblies>
+    <description>A simple BDD Test Framework on top of Visual Studio Tests</description>
+    <releaseNotes>Ported features from Layman.xUnit 3.0.4</releaseNotes>
+    <copyright>Copyright Sameera Perera 2017</copyright>
     <tags>BDD VisualStudio UnitTest</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="Microsoft.VisualStudio.TestPlatform.TestFramework" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions" targetFramework=".NETFramework4.0" />
+    </frameworkAssemblies>
   </metadata>
   <files>
-    <file src="" exclude="*.tt" />
+    <file src="bin\release\Layman.dll" target="lib\net452\Layman.dll" />
   </files>
 </package>

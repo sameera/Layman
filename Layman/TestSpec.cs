@@ -1,48 +1,94 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Threading.Tasks;
 
 namespace Layman
 {
     [TestClass]
     public partial class TestSpec
     {
-        protected void Given(string description, Action setupAction)
+        protected void Given(string description) => Console.WriteLine($"GIVEN {description}");
+
+        protected void Given(Action setupAction) => setupAction();
+
+        protected void Given<T>(out T state, Action setupAction)
         {
-            Console.WriteLine($"GIVEN {description}");
+            state = default(T);
             Given(setupAction);
         }
 
-        protected void Given(Action setupAction)
+        protected void Given<T>(string description, out T state, Action setupAction)
         {
-            setupAction();
+            state = default(T);
+            Given(description, setupAction);
+        }
+
+        protected async Task Given(string description, Func<Task> asyncAction)
+        {
+            Given(description);
+            await asyncAction();
+        }
+
+        protected void Given(string description, Action setupAction)
+        {
+            Given(description);
+            Given(setupAction);
+        }
+
+        protected void When(string description) => Console.WriteLine($"\tWHEN {description}");
+
+        protected void When(Action act) => act();
+
+        protected void When<T>(out T state, Action action)
+        {
+            state = default(T);
+            When(action);
+        }
+
+        protected async Task When(string description, Func<Task> asyncAction)
+        {
+            Given(description);
+            await asyncAction();
+        }
+
+        protected void When<T>(string description, out T state, Action act)
+        {
+            state = default(T);
+            When(description, act);
         }
 
         protected void When(string description, Action act)
         {
-            Console.WriteLine($"\tWHEN {description}");
+            When(description);
             When(act);
-        }
-
-        protected void When(Action act)
-        {
-            act();
         }
 
         protected void It(string description, Func<bool> check)
         {
-            Assert.IsTrue(check(), description + " :FAILED:");
-            Console.WriteLine($"\t\tIT {description}");
+            AssertInternal(description, check());
         }
 
-        protected void It(Func<bool> check)
+        protected void It(string description, bool outcome)
         {
-            It(check.Method.Name, check);
+            AssertInternal(description, outcome);
+        }
+
+        private void AssertInternal(string description, bool success)
+        {
+            Console.WriteLine(string.Concat("\t\tIT ", description, success ? string.Empty : " :FAILED:"));
+            Assert.IsTrue(success, description + " :FAILED:");
+        }
+
+        protected async Task It(string description, Func<Task> asyncAction)
+        {
+            It(description);
+            await asyncAction();
         }
 
         protected void It(string description, Action check)
         {
+            It(description);
             check();
-            Console.WriteLine($"\t\tIT {description}");
         }
 
         protected void It(Action check)
@@ -50,19 +96,9 @@ namespace Layman
             check();
         }
 
-        protected struct Reaction<T>
+        protected void It(string description)
         {
-            private readonly T subject;
-
-            public void Which_results_in(Action<T> react)
-            {
-                react(subject);
-            }
-
-            public Reaction(T subject)
-            {
-                this.subject = subject;
-            }
+            Console.WriteLine($"\t\tIT {description}");
         }
     }
 }

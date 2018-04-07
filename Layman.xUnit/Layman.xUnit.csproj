@@ -4,8 +4,8 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <RootNamespace>Layman</RootNamespace>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>3.0.3</Version>
-    <AssemblyVersion>3.0.3.0</AssemblyVersion>
+    <Version>3.0.4</Version>
+    <AssemblyVersion>3.0.4.0</AssemblyVersion>
     <Authors>Sameera Perera</Authors>
     <PackageProjectUrl>https://github.com/sameera/layman</PackageProjectUrl>
     <PackageLicenseUrl>https://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
