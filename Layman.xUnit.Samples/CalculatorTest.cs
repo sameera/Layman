@@ -19,12 +19,6 @@ namespace Layman.xUnit.Samples
             When("I Add", out int calculated_result, () => calculated_result = the_calculator.Add());
 
             It("gives me the sum of the numbers", () => calculated_result.Should().Be(30));
-            And("doesn't return just the either of the given values", () => {
-                // This test is just to demonstrte the Not() function. Otherwise, it's pretty silly to write
-                // a test like this :)
-                calculated_result.Should().NotBe(10);
-                calculated_result.Should().NotBe(20);
-            });
         }
 
         [Fact]
