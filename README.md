@@ -81,7 +81,7 @@ namespace Layman.xUnit.Samples
             When("I Add", out int calculated_result, () => calculated_result = the_calculator.Add());
 
             // You can do more than one assertion like this:
-            It("Leaves original values are unaffected", () => {
+            It("Leaves original values unaffected", () => {
                 the_calculator.FirstNumber.Should().Be(10);
                 the_calculator.SecondNumber.Should().Be(20);
             });
